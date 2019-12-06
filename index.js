@@ -10,13 +10,13 @@ var WebSocket = require('ws');
 var url = require('url');
 
 var httpOptions =  {
- key: fs.readFileSync("/home/simplecold/Documents/HTML/ssh/privatekey.pem"),
- cert: fs.readFileSync("/home/simplecold/Documents/HTML/ssh/certificate.pem")
+ key: fs.readFileSync("./ssh/privatekey.pem"),
+ cert: fs.readFileSync("./ssh/certificate.pem")
 }
 
 var server = https.createServer(httpOptions, app);
 var io = require('socket.io')(server);
-server.listen(8080);
+server.listen(3001);
 app.get('/index.html', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );
 });
